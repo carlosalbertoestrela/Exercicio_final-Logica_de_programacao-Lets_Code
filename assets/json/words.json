@@ -1,0 +1,16 @@
+
+[
+    {
+        "theme": "casa",
+        "word": ["armario", "cama", "quarto", "Sala", "cozinha"]
+    },
+    {
+        "theme": "jogos",
+        "word": ["god of war", "Hollow Knight", "Battlefild"]
+    },
+    {
+        "theme": "futebol",
+        "word": ["flamengo","botafogo","corinthians","vasco da gama","atletico paranaence","gremio","atletico mineiro","palmeiras"]
+    }
+]
+
