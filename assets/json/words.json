@@ -2,15 +2,15 @@
 [
     {
         "theme": "casa",
-        "word": ["armario", "cama", "quarto", "Sala", "cozinha"]
+        "word": ["armario", "cama", "quarto", "Sala", "cozinha", "banheiro", "varanda", "despensa", "quintal"]
     },
     {
         "theme": "jogos",
-        "word": ["god of war", "Hollow Knight", "Battlefild", "Ori", "Elder Ring", "Call of Duty", "Fortinite"]
+        "word": ["god of war", "Hollow Knight", "Battlefild", "Ori", "Elder Ring", "Call of Duty", "Fortnite", "among us"]
     },
     {
         "theme": "futebol",
-        "word": ["flamengo","botafogo","corinthians","vasco da gama","atletico paranaense","gremio","atletico mineiro","palmeiras"]
+        "word": ["flamengo", "botafogo", "corinthians", "vasco da gama", "atletico paranaense", "gremio", "atletico mineiro", "palmeiras", "são paulo", "santos"]
     }
 ]
 

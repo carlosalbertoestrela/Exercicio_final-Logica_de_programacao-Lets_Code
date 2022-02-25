@@ -54,6 +54,7 @@ fetch("assets/json/words.json")
             const doll = document.querySelector("img");
             doll.setAttribute("src", `./assets/images/doll/${num}.png`);
         };
+
         let chooseTheme = (number, data) => {
             number = parseInt(number);
             theme = data.map(function (iten, index) {
@@ -66,23 +67,25 @@ fetch("assets/json/words.json")
             themeWords = words[number - 1];
             return [choosedTheme, themeWords];
         };
+
         let hidden = (element = []) => {
             for (i of element) {
-                i.setAttribute("hidden", "true")
+                i.setAttribute("hidden", "true");
             }
-        }
+
+        };
+
         let show = (element = []) => {
             for (i of element) {
-                i.removeAttribute("hidden")
+                i.removeAttribute("hidden");
             }
-        }
-
+        };
 
         // inretação DOM
         const result = document.querySelector("#result");
         const hiddenWord = document.querySelector("#hiddenWord");
         const usedLetters = document.querySelector("#usedLetters");
-        const btStart = document.querySelector("#btStart")
+        const btStart = document.querySelector("#btStart");
         const letterIn = document.querySelector("#letterIn");
         const themeTitle = document.querySelector("#themeTitle");
         const btConfirm = document.querySelector("#btConfirm");
@@ -90,16 +93,16 @@ fetch("assets/json/words.json")
         const image = document.querySelector(".image");
 
         btRestart.addEventListener("click", () => {
-            document.location.reload(true)
+            document.location.reload(true);
         })
         btStart.addEventListener("click", () => {
-            game()
-            hidden([btStart])
+            game();
+            hidden([btStart]);
         })
 
         const game = () => {
-            show([hiddenWord, usedLetters, letterIn, btConfirm, themeTitle, image])
-            let life = 0
+            show([hiddenWord, usedLetters, letterIn, btConfirm, themeTitle, image]);
+            let life = 0;
             let letterUsed = [];
             let choosingTheme;
             drawDoll(life);
@@ -125,9 +128,9 @@ fetch("assets/json/words.json")
                     let letter = letterIn.value;
                     let positions = verifyLetter(letter, word);
                     if (letter === "" || !isNaN(letter)) {
-                        alert("Valor inválido")
+                        alert("Valor inválido");
                     } else if (letterUsed.includes(letter)) {
-                        alert("Letra já usada")
+                        alert("Letra já usada");
                     } else {
                         letterUsed.push(letter)
                         if (positions.length > 0) {
@@ -142,23 +145,20 @@ fetch("assets/json/words.json")
                     drawDoll(life);
                     usedLetters.innerHTML = letterUsed;
                     hiddenWord.innerHTML = wordLines.join(" ");
-                    document.getElementById("letterIn").value = null
-                    document.getElementById("letterIn").focus()
+                    document.getElementById("letterIn").value = null;
+                    document.getElementById("letterIn").focus();
                     if (verifyComplete(word, wordLines)) {
-                        show([result,btRestart])
-                        hidden([hiddenWord, usedLetters, letterIn, btConfirm])
-                        result.innerHTML = ` &#127882; PARABÉNS Você encontrou a Palavra: ${word} &#127882;`
+                        show([result,btRestart]);
+                        hidden([hiddenWord, usedLetters, letterIn, btConfirm]);
+                        result.innerHTML = ` &#127882; PARABÉNS Você encontrou a Palavra: ${word} &#127882;`;
                     }
                     if (life == 6) {
-                        drawDoll(6)
-                        show([result,btRestart])
-                        hidden([hiddenWord, usedLetters, letterIn, btConfirm])
-                        result.innerHTML = ` &#10060; GAME OVER &#10060;\nPalavra Secreta: ${word}`
+                        drawDoll(6);
+                        show([result,btRestart]);
+                        hidden([hiddenWord, usedLetters, letterIn, btConfirm]);
+                        result.innerHTML = ` &#10060; GAME OVER &#10060;\nPalavra Secreta: ${word}`;
                     }
                 }
-
             );
-
-
         }
     })
