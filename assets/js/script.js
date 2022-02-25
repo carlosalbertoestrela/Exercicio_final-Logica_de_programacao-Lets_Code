@@ -81,7 +81,7 @@ fetch("assets/json/words.json")
             }
         };
 
-        // inretação DOM
+        // inratação DOM
         const result = document.querySelector("#result");
         const hiddenWord = document.querySelector("#hiddenWord");
         const usedLetters = document.querySelector("#usedLetters");
@@ -108,7 +108,7 @@ fetch("assets/json/words.json")
             drawDoll(life);
             while (true) {
                 // validando entrada do tema
-                choosingTheme = prompt("Escolha o tema:\n 1:Casa\n2:Jogos\n3:Futebol");
+                choosingTheme = prompt("Escolha o número do tema:\n01: Casa\n02: Jogos\n03: Futebol");
                 choosingTheme = parseInt(choosingTheme);
                 if (choosingTheme >= 1 && choosingTheme <= 3) {
                     break;
@@ -127,12 +127,13 @@ fetch("assets/json/words.json")
             btConfirm.addEventListener("click", () => {
                     let letter = letterIn.value;
                     let positions = verifyLetter(letter, word);
-                    if (letter === "" || !isNaN(letter)) {
+                    
+                    if (!/^[a-zA-Z]+$/.test(letter)) {
                         alert("Valor inválido");
                     } else if (letterUsed.includes(letter)) {
                         alert("Letra já usada");
                     } else {
-                        letterUsed.push(letter)
+                        letterUsed.push(letter.toUpperCase())
                         if (positions.length > 0) {
                             for (i of positions) {
                                 wordLines = changeCaracter(letter, i, wordLines);
