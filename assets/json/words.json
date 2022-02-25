@@ -2,11 +2,11 @@
 [
     {
         "theme": "casa",
-        "word": ["armario", "cama", "quarto", "Sala", "cozinha", "banheiro", "varanda", "despensa", "quintal"]
+        "word": ["armario", "cama", "quarto", "Sala", "cozinha", "banheiro", "varanda", "despensa", "quintal", "telhado", "mesa", "tomada", "privada", "banheira", "criado mudo", "janela"]
     },
     {
         "theme": "jogos",
-        "word": ["god of war", "Hollow Knight", "Battlefild", "Ori", "Elder Ring", "Call of Duty", "Fortnite", "among us"]
+        "word": ["god of war", "Hollow Knight", "Battlefild", "Ori", "Elder Ring", "Call of Duty", "Fortnite", "among us", "The Legend of Zelda", "dark souls", "black", "final fantasy", "medal of honor", "demon souls", "metal slug", "sonic", "ark"]
     },
     {
         "theme": "futebol",
