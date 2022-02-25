@@ -7,11 +7,10 @@
     box-sizing: border-box;
     text-align: center;
     font-family: 'Libre Baskerville', serif;
-
 }
+
 html, body{
     background-color: rgb(141, 95, 184);
-
 }
 
 @media screen and (min-width: 800px) {
@@ -21,6 +20,7 @@ html, body{
         margin: 0;
         background-color: white;
     }
+
     body{
         display: flex;
         justify-content: center;
@@ -28,6 +28,7 @@ html, body{
         margin: 0;
         background-color: white;
     }
+
     #container{
         box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
         background-color: rgb(141, 95, 184);
@@ -35,24 +36,22 @@ html, body{
     }
     
 }
+
 body{
     display: flex;
     justify-content: center;
 }
-
 
 header{
     border: 1px solid;
     border-radius: 15px;
     box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
     width: 300px;
-    
 }
 
 img{
     max-width: 300px;
-    max-height: 250px;
-    
+    max-height: 250px;    
 }
 
 div{
@@ -68,10 +67,10 @@ div{
     justify-items: center;
     justify-self:center;
 }
+
 textarea{
     text-transform: uppercase;
     text-decoration: black;
-    /* font-size: larger; */
     font-weight: bolder;
     border-radius: 20px;
 }
@@ -79,15 +78,14 @@ textarea{
 #result{
     font-size: larger;
 }
+
 button, input{
     box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
     border-radius: 15px;
 }
+
 #buttons > input{
-    
     width: 40px;
     height: 40px;
     margin: 3px;
-    
-
 }
