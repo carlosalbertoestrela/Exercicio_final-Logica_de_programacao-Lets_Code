@@ -7,18 +7,31 @@
     
 
 }
+html, body{
+    background-color: rgb(141, 95, 184);
+
+}
+
 @media screen and (min-width: 800px) {
     
     html{
         padding: 0;
         margin: 0;
+        background-color: white;
     }
     body{
         display: flex;
         justify-content: center;
         padding: 0;
         margin: 0;
+        background-color: white;
     }
+    #container{
+        box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
+        background-color: rgb(141, 95, 184);
+        border: 1px solid red;
+    }
+    
 }
 body{
     display: flex;
@@ -46,9 +59,7 @@ div{
 }
 
 #container{
-    box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
     background-color: rgb(141, 95, 184);
-    border: 1px solid red;
     border-radius: 30px;
     display: grid;
     grid-template:auto;
