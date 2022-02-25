@@ -28,16 +28,13 @@ fetch("assets/json/words.json")
             return array[choosed];
         };
 
-        let verifyLetter = (letter = "", word = "") => {
+        let verifyLetter = (letter = "", word = []) => {
             // recvives a caracter and a string, verify if the caracter is in the string and returns the caracter position on the string 
             word = word.split("");
             places = [];
             for (i in word) {
                 if (word[i].toUpperCase() === letter.toUpperCase()) {
                     places.push(i);
-                }
-                else{
-                    return -1;
                 }
             }
             return places;
