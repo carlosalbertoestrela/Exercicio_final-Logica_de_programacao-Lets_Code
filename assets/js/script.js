@@ -10,6 +10,7 @@ fetch("assets/json/words.json")
         //Funções: =>
 
         let makeLines = (string = "") => {
+            //receives a string and returns one array of “_” with the same length of the string
             let lines = [];
             for (i = 0; i < string.length; i++) {
                 if (string[i] == " ") {
@@ -22,27 +23,34 @@ fetch("assets/json/words.json")
         };
 
         let chooseWord = (array = []) => {
+            //receives one array and return one random item of the array
             choosed = Math.floor(Math.random() * (array.length - 0) + 0);
             return array[choosed];
         };
 
-        let verifyLetter = (letter = "", word = []) => {
+        let verifyLetter = (letter = "", word = "") => {
+            // recvives a caracter and a string, verify if the caracter is in the string and returns the caracter position on the string 
             word = word.split("");
             places = [];
             for (i in word) {
                 if (word[i].toUpperCase() === letter.toUpperCase()) {
                     places.push(i);
                 }
+                else{
+                    return -1;
+                }
             }
             return places;
         };
 
         let changeCaracter = (caracter = "_", position, array = []) => {
+            //receives a caracter, a position(integer) end a array. returns a new array with the caracter in te position given
             array.splice(position, 1, caracter.toUpperCase());
             return array;
         };
 
         let verifyComplete = (word = [], hiddenWord = []) => {
+            //recive two arrays end compare they, if they are iquals return TRUE, else return FALSE
             if (word.toUpperCase() === hiddenWord.join("").toUpperCase()) {
                 return true;
             } else {
@@ -51,6 +59,7 @@ fetch("assets/json/words.json")
         };
 
         let drawDoll = (num = 0) => {
+            //drawl the doll based on the parameter NUM. min = 0 max = 6
             const doll = document.querySelector("img");
             doll.setAttribute("src", `./assets/images/doll/${num}.png`);
         };
@@ -69,6 +78,7 @@ fetch("assets/json/words.json")
         };
 
         let hidden = (element = []) => {
+            // hidde the elemente on html passad as a parameter
             for (i of element) {
                 i.setAttribute("hidden", "true");
             }
@@ -76,6 +86,7 @@ fetch("assets/json/words.json")
         };
 
         let show = (element = []) => {
+            // show the elemente on html passad as a parameter
             for (i of element) {
                 i.removeAttribute("hidden");
             }
