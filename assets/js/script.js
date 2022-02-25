@@ -1,11 +1,11 @@
-
-
 fetch("assets/json/words.json")
     .then((response) => {
         return response.json();
     })
     .then((data) => {
-        let themes = data.map(function (iten, index) { return iten.theme; });
+        let themes = data.map(function (iten, index) {
+            return iten.theme;
+        });
 
         //Funções: =>
 
@@ -32,7 +32,6 @@ fetch("assets/json/words.json")
             for (i in word) {
                 if (word[i].toUpperCase() === letter.toUpperCase()) {
                     places.push(i);
-                    console.log(i)
                 }
             }
             return places;
@@ -67,23 +66,45 @@ fetch("assets/json/words.json")
             themeWords = words[number - 1];
             return [choosedTheme, themeWords];
         };
-        
+        let hidden = (element = []) => {
+            for (i of element) {
+                i.setAttribute("hidden", "true")
+            }
+        }
+        let show = (element = []) => {
+            for (i of element) {
+                i.removeAttribute("hidden")
+            }
+        }
+
+
         // inretação DOM
+        const result = document.querySelector("#result");
         const hiddenWord = document.querySelector("#hiddenWord");
         const usedLetters = document.querySelector("#usedLetters");
-        let letterUsed = [];
+        const btStart = document.querySelector("#btStart")
         const letterIn = document.querySelector("#letterIn");
         const themeTitle = document.querySelector("#themeTitle");
         const btConfirm = document.querySelector("#btConfirm");
-        let life = 0
-        
-        let game = () => {
-        
+        const btRestart = document.querySelector("#btRestart");
+        const image = document.querySelector(".image");
+
+        btRestart.addEventListener("click", () => {
+            document.location.reload(true)
+        })
+        btStart.addEventListener("click", () => {
+            game()
+            hidden([btStart])
+        })
+
+        const game = () => {
+            show([hiddenWord, usedLetters, letterIn, btConfirm, themeTitle, image])
+            let life = 0
+            let letterUsed = [];
             let choosingTheme;
-            drawDoll();
+            drawDoll(life);
             while (true) {
                 // validando entrada do tema
-
                 choosingTheme = prompt("Escolha o tema:\n 1:Casa\n2:Jogos\n3:Futebol");
                 choosingTheme = parseInt(choosingTheme);
                 if (choosingTheme >= 1 && choosingTheme <= 3) {
@@ -100,94 +121,44 @@ fetch("assets/json/words.json")
             let wordLines = makeLines(word);
             hiddenWord.innerHTML = wordLines.join(" ");
             // Receber e verificar letra digitada
-            btConfirm.addEventListener("click",() => {
-                let letter = letterIn.value;
-                let positions = verifyLetter(letter, word);
-                if(letterUsed.includes(letter)){
-                    alert("Letra já usada")
-                }
-                else{
-                    letterUsed.push(letter)
-                    if (positions.length > 0) {
-                        for (i of positions) {
-                            wordLines = changeCaracter(letter, i, wordLines);
+            btConfirm.addEventListener("click", () => {
+                    let letter = letterIn.value;
+                    let positions = verifyLetter(letter, word);
+                    if (letter === "" || !isNaN(letter)) {
+                        alert("Valor inválido")
+                    } else if (letterUsed.includes(letter)) {
+                        alert("Letra já usada")
+                    } else {
+                        letterUsed.push(letter)
+                        if (positions.length > 0) {
+                            for (i of positions) {
+                                wordLines = changeCaracter(letter, i, wordLines);
+                            }
+                        } else {
+                            life += 1;
                         }
                     }
-                    else{
-                        life+=1;
+                    //interação com a forca
+                    drawDoll(life);
+                    usedLetters.innerHTML = letterUsed;
+                    hiddenWord.innerHTML = wordLines.join(" ");
+                    document.getElementById("letterIn").value = null
+                    document.getElementById("letterIn").focus()
+                    if (verifyComplete(word, wordLines)) {
+                        show([result])
+                        hidden([hiddenWord, usedLetters, letterIn, btConfirm])
+                        result.innerHTML = `PARABÉNS Você encontrou a Palavra: ${word}`
+                    }
+                    if (life == 6) {
+                        drawDoll(6)
+                        show([result])
+                        hidden([hiddenWord, usedLetters, letterIn, btConfirm])
+                        result.innerHTML = `GAME OVER\nPalavra Secreta: ${word}`
                     }
                 }
-                   
-                drawDoll(life);
-                usedLetters.innerHTML = letterUsed;
-                hiddenWord.innerHTML = wordLines.join(" ");
-                document.getElementById("letterIn").value = null
-                document.getElementById("letterIn").focus()
-                console.log(word, wordLines.join(''))
-                if(verifyComplete(word,wordLines)){
-                    alert("parabêns")
-                }
-            }
 
-        );
-        
-    }
-    game();
-})
+            );
 
-//Jogo
-// drawDoll(6)
-// words = returnWords()
-// console.log(words[0]["palavras"])
-// word = chooseWord(words[0]["palavras"])
-// lines = makeLines(word)
-// hiddenWord.innerHTML = lines.join(' ');
 
-// while(verifyComplete(word,lines)){
-
-// position = verifyLetter(letter,word)
-// if(position.length == 0){
-//     alert("tem não")
-// }
-// else{
-//     alert("tem sim")
-//     for(i of position){
-//         hiddenWord = changeCaracter(letter, i,hiddenWord)
-//     }
-// }
-// console.log(verifyComplete(word,hiddenWord))
-// }
-
-// const teste = () =>{
-//     let image = document.querySelector(".imagem");
-//     image.innerHTML = `<img src="./assets/images/doll/0.png">`
-
-// }
-
-//    fetch("assets/json/text.json")
-//     .then(response =>{
-//         return console.log(response.json())
-//     })
-//     .then(data =>{
-
-//     })
-// word = (chooseWord(["casa", "aviao", "pina-colada", "coisa"]))
-// hiddenWord = makeLines(word)
-
-// console.log(verifyComplete(word,hiddenWord))
-// while(verifyComplete(word,hiddenWord.join(''))){
-
-//     letter = prompt(`digite uma letra \n ${hiddenWord.join(" ")}`)
-//     position = verifyLetter(letter,word)
-//     if(position.length == 0){
-//         alert("tem não")
-//     }
-//     else{
-//         alert("tem sim")
-//         for(i of position){
-//             hiddenWord = changeCaracter(letter, i,hiddenWord)
-//         }
-//     }
-//     console.log(verifyComplete(word,hiddenWord))
-// }
-// console.log("Acabou")
+        }
+    })
