@@ -145,15 +145,15 @@ fetch("assets/json/words.json")
                     document.getElementById("letterIn").value = null
                     document.getElementById("letterIn").focus()
                     if (verifyComplete(word, wordLines)) {
-                        show([result])
+                        show([result,btRestart])
                         hidden([hiddenWord, usedLetters, letterIn, btConfirm])
-                        result.innerHTML = `PARABÉNS Você encontrou a Palavra: ${word}`
+                        result.innerHTML = ` &#127882; PARABÉNS Você encontrou a Palavra: ${word} &#127882;`
                     }
                     if (life == 6) {
                         drawDoll(6)
-                        show([result])
+                        show([result,btRestart])
                         hidden([hiddenWord, usedLetters, letterIn, btConfirm])
-                        result.innerHTML = `GAME OVER\nPalavra Secreta: ${word}`
+                        result.innerHTML = ` &#10060; GAME OVER &#10060;\nPalavra Secreta: ${word}`
                     }
                 }
 

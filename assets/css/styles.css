@@ -6,10 +6,11 @@
     text-align: center;
 
 }
-/* html{
-    height: 100vh;
-    width: 100vw;
-} */
+
+body{
+    display: flex;
+    justify-content: center;
+}
 
 
 header{
@@ -31,15 +32,7 @@ div{
     box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
 }
 
-@media screen and (max-height: 800px){
-    #container{
-        height: 50%;
-        width: 50%;
-    }
-    
-}
 #container{
-    
     box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
     background-color: rgb(141, 95, 184);
     border: 1px solid red;
@@ -54,7 +47,11 @@ textarea{
     text-decoration: black;
     font-size: larger;
     font-weight: bolder;
-    border-radius: 15px;
+    border-radius: 20px;
+}
+
+#result{
+    font-size: larger;
 }
 button, input{
     box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
