@@ -150,13 +150,13 @@ fetch("assets/json/words.json")
                     if (verifyComplete(word, wordLines)) {
                         show([result,btRestart]);
                         hidden([hiddenWord, usedLetters, letterIn, btConfirm]);
-                        result.innerHTML = ` &#127882; PARABÉNS Você encontrou a Palavra: ${word} &#127882;`;
+                        result.innerHTML = ` \n&#127882; PARABÉNS Você encontrou a Palavra: ${word} &#127882;`;
                     }
                     if (life == 6) {
                         drawDoll(6);
                         show([result,btRestart]);
                         hidden([hiddenWord, usedLetters, letterIn, btConfirm]);
-                        result.innerHTML = ` &#10060; GAME OVER &#10060;\nPalavra Secreta: ${word}`;
+                        result.innerHTML = ` \n&#10060; GAME OVER &#10060;\nPalavra Secreta: ${word}`;
                     }
                 }
             );

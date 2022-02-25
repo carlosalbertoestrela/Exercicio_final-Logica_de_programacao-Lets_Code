@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
 *{
     background-color: rgb(207, 221, 236);
     margin: 2%;
     padding: 2%;
     box-sizing: border-box;
     text-align: center;
-    
+    font-family: 'Libre Baskerville', serif;
 
 }
 html, body{
@@ -69,7 +71,7 @@ div{
 textarea{
     text-transform: uppercase;
     text-decoration: black;
-    font-size: larger;
+    /* font-size: larger; */
     font-weight: bolder;
     border-radius: 20px;
 }
