@@ -6,6 +6,10 @@
     text-align: center;
 
 }
+/* html{
+    height: 100vh;
+    width: 100vw;
+} */
 
 
 header{
@@ -27,8 +31,15 @@ div{
     box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
 }
 
-
+@media screen and (max-height: 800px){
+    #container{
+        height: 50%;
+        width: 50%;
+    }
+    
+}
 #container{
+    
     box-shadow: 5px 5px 6px 1px rgb(63, 63, 63);
     background-color: rgb(141, 95, 184);
     border: 1px solid red;
@@ -36,6 +47,7 @@ div{
     display: grid;
     grid-template:auto;
     justify-items: center;
+    justify-self:center;
 }
 textarea{
     text-transform: uppercase;
