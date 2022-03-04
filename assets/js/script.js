@@ -138,7 +138,7 @@ fetch("assets/json/words.json")
                     
                     if (!/^[a-zA-Z]+$/.test(letter)) {
                         alert("Valor inválido");
-                    } else if (letterUsed.includes(letter)) {
+                    } else if (letterUsed.includes(letter.toUpperCase())) {
                         alert("Letra já usada");
                     } else {
                         letterUsed.push(letter.toUpperCase())
